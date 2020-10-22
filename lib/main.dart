@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:TheRecipeBook/category_meals_screen.dart';
 import 'package:flutter/material.dart';
 import './categories_screen.dart';
 
@@ -12,9 +15,28 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TheRecipeBook',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          primarySwatch: Colors.pink,
+          accentColor: Colors.amber,
+          canvasColor: Color.fromRGBO(255, 254, 229, 1),
+          textTheme: ThemeData.light().textTheme.copyWith(
+                body1: TextStyle(
+                  fontFamily: 'RalewaySemiBold',
+                  color: Color.fromRGBO(20, 51, 51, 1),
+                ),
+                body2: TextStyle(
+                  fontFamily: 'RalewayThin',
+                  fontStyle: FontStyle.italic,
+                  fontSize: 20,
+                  color: Color.fromRGBO(20, 51, 51, 1),
+                ),
+                title: TextStyle(
+                  fontFamily: 'RalewayLight',
+                ),
+              )),
       home: CategoriesScreen(),
+      routes: {
+        '/categories_meals': (ctx) => CategoryMealsScreen(),
+      },
     );
   }
 }
