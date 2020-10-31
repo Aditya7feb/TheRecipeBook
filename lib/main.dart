@@ -1,8 +1,8 @@
 import 'dart:ui';
 
-import 'package:TheRecipeBook/category_meals_screen.dart';
+import 'package:TheRecipeBook/screens/category_meals_screen.dart';
 import 'package:flutter/material.dart';
-import './categories_screen.dart';
+import 'screens/categories_screen.dart';
 
 void main() {
   runApp(MyApp());
