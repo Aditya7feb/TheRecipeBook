@@ -9,9 +9,12 @@ class CategoryItem extends StatelessWidget {
 
   CategoryItem(this.id, this.title, this.color);
 
+  //Navigator for calling next page
+  //all the pages in app goes in the form of stacks structure i.e one-over the other page
+
   void selectCategory(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
-      '/categories_meals',
+      CategoryMealsScreen.routeName,
       arguments: {
         'id': id,
         'title': title,
