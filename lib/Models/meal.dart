@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import '../widgets/meal_item.dart';
 
 enum Complexity {
   Simple,
