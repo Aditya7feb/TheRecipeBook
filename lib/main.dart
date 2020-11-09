@@ -1,6 +1,11 @@
 import 'dart:ui';
 
-import 'package:TheRecipeBook/screens/category_meals_screen.dart';
+import './screens/bottom_bar.dart';
+
+//import './screens/tabs_screen.dart';
+
+import './screens/category_meals_screen.dart';
+import './screens/meal_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/categories_screen.dart';
 
@@ -38,8 +43,34 @@ class MyApp extends StatelessWidget {
       //home: CategoriesScreen(),
       //initialroute : '/',
       routes: {
-        '/': (ctx) => CategoriesScreen(),
+        '/': (ctx) => BottomBar(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+      },
+
+      //onGenerateRoute is used when the route name is generated during the entire lifecycle
+      //of the app and we dont know them in advance
+
+      // onGenerateRoute: (settings) {
+      //   print(settings.arguments);
+      //  if(settings.name == '/meal-detail'){
+      //   return ...;
+      // }elseif(settings.name == '/something-else'){
+      //   return ...;
+      // }
+      //   return MaterialPageRoute(
+      //     builder: (ctx) => CategoriesScreen(),
+      //   );
+
+      // },
+
+      // error 404 - in case when some page doesnt exist then onUnknownRoute
+      //prevents the app to just crash and then routes to the page defined
+
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (ctx) => CategoriesScreen(),
+        );
       },
     );
   }
