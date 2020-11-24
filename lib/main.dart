@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import './screens/bottom_bar.dart';
-
+import './screens/filters_screen.dart';
 //import './screens/tabs_screen.dart';
 
 import './screens/category_meals_screen.dart';
@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/': (ctx) => BottomBar(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        FiltersScreen.routeName: (ctx) => FiltersScreen(),
       },
 
       //onGenerateRoute is used when the route name is generated during the entire lifecycle
