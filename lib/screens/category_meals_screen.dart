@@ -25,7 +25,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   @override
   void didChangeDependencies() {
     if (!_loadedInitData) {
-      //content works in didChangeDependencies
+      //content works in didChangeDependencies() but not in initState()
       final routeArgs =
           ModalRoute.of(context).settings.arguments as Map<String, String>;
 
@@ -34,6 +34,9 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
       displayedMeals = DUMMY_MEALS.where((meal) {
         return meal.categories.contains(categoryId);
       }).toList();
+      //run to often so we need to restrice the no of time this fuuntion
+      //loaded itself => we use _loadedInitData=true to restrict the function.
+      //this makes the program to run only 1st time.
       _loadedInitData = true;
     }
     super.didChangeDependencies();
