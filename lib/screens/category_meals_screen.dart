@@ -1,11 +1,13 @@
 import '../models/meal.dart';
-
 import 'package:flutter/material.dart';
-import '../dummy_data.dart';
 import '../widgets/meal_item.dart';
 
 class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
+
+  final List<Meal> availaibleMeals;
+
+  CategoryMealsScreen(this.availaibleMeals);
 
   @override
   _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
@@ -31,7 +33,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
 
       final categoryId = routeArgs['id'];
       categoryTitle = routeArgs['title'];
-      displayedMeals = DUMMY_MEALS.where((meal) {
+      displayedMeals = widget.availaibleMeals.where((meal) {
         return meal.categories.contains(categoryId);
       }).toList();
       //run to often so we need to restrice the no of time this fuuntion
